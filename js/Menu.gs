@@ -8,14 +8,16 @@ var Menu = (function()
 	*/
 	function Menu()
 	{
-	
+		var self	= this;
+		var menu;	
+		var title;
+		var items;
+		
 		/** Create
 		 *
-		 * @return self
 		 */
-		this.create = function()
+		this.create = function(title)
 		{
-			//alert( 'Menu.create()' );
 			 //SpreadsheetApp.getUi().alert('message');
 			var ui = SpreadsheetApp.getUi();
 			// Or DocumentApp or FormApp.
