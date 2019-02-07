@@ -25,9 +25,16 @@ function MenuCreateTest( )
 	_Menu.create('MenuCreateTest', items);
 
 }
-
+/** 
+ */
+function onOpen() 
+{
+	MenuCreateTest();
+}
+          
+/** 
+ */
 function menuTestFunction( )
 {
 	SpreadsheetApp.getUi().alert('menuTestFunction()');
 }
-
