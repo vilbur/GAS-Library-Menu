@@ -1,5 +1,3 @@
-
-
 /** 
  */
 var Menu = (function()
@@ -8,29 +6,15 @@ var Menu = (function()
 	*/
 	function Menu()
 	{
-		var self	= this;
-		var menu;	
-		var title;
-		var items;
 		
 		/** Create
 		 *
 		 */
 		this.create = function(title, items)
 		{
-			 //SpreadsheetApp.getUi().alert('message');
-			//var ui = SpreadsheetApp.getUi();
-			//// Or DocumentApp or FormApp.
-			//ui.createMenu('Custom Menu')
-			//	.addItem('First item', 'menuItem1')
-			//	.addSeparator()
-			//	.addSubMenu(ui.createMenu('Sub-menu')
-			//		.addItem('Second item', 'menuItem2'))
-			//	.addToUi();
-			
 			menu = createMenu(title);
-			menuAddItems(menu, items).addToUi();
 
+			menuAddItems(menu, items).addToUi();
         };
 
 		/**
@@ -38,14 +22,15 @@ var Menu = (function()
 		 *	@param	items	object	of menu objects
 		 *	@return object menu
 		 */
-		var menuAddItems = function(menu, items) {
-	
+		var menuAddItems = function(menu, items)
+		{
 			var items_keys = Object.keys(items);
-			for (var i = 0; i < items_keys.length; i++) {
+			for (var i = 0; i < items_keys.length; i++)
+			{
 				var key	= items_keys[i];
 				var item	= items[key];
 				var type	= getItemType(key, item);
-		
+			
 				if (type !== 'object')
 					menu = menuAddItem(menu, type, key, item);
 				else
@@ -53,6 +38,7 @@ var Menu = (function()
 			}
 			return menu;
 		};
+		
 		/** Add item to object
 		 *	@param	menu	object menu
 		 *	@param	type	string type of menu item @ref getItemType()
@@ -60,10 +46,11 @@ var Menu = (function()
 		 *	@param	item	mixin	menu object
 		 *	@return object menu
 		 */
-		var menuAddItem = function(menu, type, key, item) {
+		var menuAddItem = function(menu, type, key, item)
+		{
 			switch (type) {
 				case 'array-fn':
-					menu.addItem(item[0], namespace+item[1]);			
+					menu.addItem(item[0], item[1]);			
 					break;
 				case 'submenu':
 					menu.addSubMenu(menuCreatesubmenu(key, item));
@@ -89,7 +76,8 @@ var Menu = (function()
 		 *	@param	item	mixin	item object
 		 *	@return string type of item object: 'array-fn|object|submenu|separator'
 		 */
-		var getItemType = function(key, item) {
+		var getItemType = function(key, item)
+		{
 			var typeof_item = typeof item;
 		
 			if(Array.isArray(item) && item.length == 2 && typeof item[0]== 'string' )
@@ -112,31 +100,8 @@ var Menu = (function()
 		{
 			return SpreadsheetApp.getUi().createMenu(title);	
 		};
-		
-      
-      
-		
 	}
-	
 	
 	return Menu;
 })();
 
-
-function onOpen() 
-{
-  //var _Menu = new Menu();
-  //_Menu.create();
-  
-	MenuCreateTest();
-}
-
-function menuItem1() {
-  SpreadsheetApp.getUi() // Or DocumentApp or FormApp.
-     .alert('You clicked the first menu item!');
-}
-
-function menuItem2() {
-  SpreadsheetApp.getUi() // Or DocumentApp or FormApp.
-     .alert('You clicked the second menu item!');
-}
