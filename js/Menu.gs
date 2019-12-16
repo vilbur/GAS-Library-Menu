@@ -105,22 +105,3 @@ var Menu = (function()
 	
 	return Menu;
 })();
-
-
-function onOpen() 
-{
-  //var _Menu = new Menu();
-  //_Menu.create();
-  
-	MenuCreateTest();
-}
-
-function menuItem1() {
-  SpreadsheetApp.getUi() // Or DocumentApp or FormApp.
-     .alert('You clicked the first menu item!');
-}
-
-function menuItem2() {
-  SpreadsheetApp.getUi() // Or DocumentApp or FormApp.
-     .alert('You clicked the second menu item!');
-}
