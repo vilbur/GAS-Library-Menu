@@ -24,4 +24,4 @@ Create menu easily with array of items
 	_Menu.create('MenuCreateTest', items);  
 
 ```  
-![](documentation\example.jpg "")  
+![](documentation/example.jpg)  
