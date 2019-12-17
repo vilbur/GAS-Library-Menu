@@ -1,5 +1,8 @@
-/** 
- */
+/** Create nenu with arrays
+*
+* @method .create(string Titile, array Items); Create menu
+* 
+*/
 var Menu = (function()
 {
 	/** 
