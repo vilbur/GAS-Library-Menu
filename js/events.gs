@@ -1,3 +1,6 @@
-function onOpen() {
-  
-};
+/** 
+ */
+function onOpen() 
+{
+	MenuCreateTest();
+}
